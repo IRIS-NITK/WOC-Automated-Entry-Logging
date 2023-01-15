@@ -1,0 +1,28 @@
+{
+  "name": "woc-automated-entry-logging",
+  "version": "1.0.0",
+  "description": "creating automated system for entry in administrative buildings of NITK",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/IRIS-NITK/WOC-Automated-Entry-Logging.git"
+  },
+  "author": "Devaansh Kumar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/IRIS-NITK/WOC-Automated-Entry-Logging/issues"
+  },
+  "homepage": "https://github.com/IRIS-NITK/WOC-Automated-Entry-Logging#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mysql2": "^3.0.1",
+    "nodemon": "^2.0.20",
+    "sequelize": "^6.28.0"
+  }
+}
