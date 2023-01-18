@@ -1,5 +1,5 @@
 const Sequelize = require("sequelize");
-const sq = require('./database');
+const sq = require('../config/database');
 
 const Locations = sq.define("locations", {
     location : {

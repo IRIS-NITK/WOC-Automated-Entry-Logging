@@ -1,16 +1,24 @@
 const Sequelize = require("sequelize");
 const sq = require('../config/database');
 
-const Users = sq.define("users", {
+const Logs = sq.define("logs", {
     rollNo : {
         type: Sequelize.STRING,
         allowNull: false,
         primarKey: true
     },
-    name: {
+    location: {
         type: Sequelize.STRING,
         allowNull: false
-    }
+    },
+    loginTime:{
+        type: Sequelize.DATE,
+        allowNull: false
+    },
+    logoutTime:{
+        type: Sequelize.DATE,
+        allowNull: true
+    },
 });
 
-module.exports = Users;
+module.exports = Logs;
