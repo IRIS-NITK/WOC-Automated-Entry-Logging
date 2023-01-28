@@ -1,16 +1,16 @@
 const Sequelize = require("sequelize");
-const sq = require('../config/database');
+const sq = require("../config/database");
 
 const Users = sq.define("users", {
-    rollNo : {
-        type: Sequelize.STRING,
-        allowNull: false,
-        primarKey: true
-    },
-    name: {
-        type: Sequelize.STRING,
-        allowNull: false
-    }
+  rollNo: {
+    primarKey: true,
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
+  name: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 });
 
 module.exports = Users;
