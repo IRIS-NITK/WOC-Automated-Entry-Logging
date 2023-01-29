@@ -1,14 +1,14 @@
+import QR from "./QR";
+import classes from "./App.module.css";
 
-import QR from './QR'
-function App() {
-  
+const App = () => {
   return (
-    <div className="App">
-        <QR location={"Library"}/>
-        <QR location={"New Sports Complex"}/>
-        <QR location={"Main Building"}/>
+    <div className={classes.App}>
+      <QR location={"Library"} />
+      <QR location={"New Sports Complex"} />
+      <QR location={"Main Building"} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
