@@ -4,8 +4,8 @@ const Users = require("./models/users");
 const Locations = require("./models/locations");
 const Logs = require("./models/log");
 const crypto = require("crypto");
-const create = require('./create');
-const cors = require('cors');
+const create = require("./create");
+const cors = require("cors");
 
 const app = express();
 const PORT = process.env.PORT | 3000;
@@ -17,7 +17,6 @@ app.get("/", (req, res) => {
 });
 
 app.use(cors());
-
 
 // login post request will contain rollno and uniqueId in the request body
 app.post("/login", async (req, res) => {
@@ -41,7 +40,6 @@ app.post("/login", async (req, res) => {
   }
 });
 
-
 // logout patch request will contain the user roll number, log out location and token in the request body
 app.patch("/logout", async (req, res) => {
   const data = req.body;
@@ -58,28 +56,29 @@ app.patch("/logout", async (req, res) => {
     await Logs.update(
       { logoutTime: new Date().toISOString().slice(0, 19).replace("T", " ") },
       { where: { token: token } }
-      );
-      res.json({ msg: "You are logged out!" });
+    );
+    res.json({ msg: "You are logged out!" });
   }
 });
 
-app.post('/generate_qr',async (req,res)=>{
+app.post("/generate_qr", async (req, res) => {
   const location = req.body.location;
-  console.log(req.body)
+  console.log(req.body);
   const token = crypto.randomBytes(8).toString("hex");
-  await Locations.update({
-    uniqueId: token
-  },
-  {where:{location}})
-  res.json({msg:"New uid generated!",uid:token});
+  await Locations.update(
+    {
+      uniqueId: token,
+    },
+    { where: { location } }
+  );
+  res.json({ msg: "New uid generated!", uid: token });
+});
 
-})
-
-app.get("/qr",async (req,res)=>{
+app.get("/qr", async (req, res) => {
   const data = req.query.location;
-  const location = await Locations.findOne({where:{location:data}});
-  res.status(200).json({uid:location.uniqueId});
-})
+  const location = await Locations.findOne({ where: { location: data } });
+  res.status(200).json({ uid: location.uniqueId });
+});
 
 const start = async () => {
   try {
