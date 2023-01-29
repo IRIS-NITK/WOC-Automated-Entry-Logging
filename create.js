@@ -17,4 +17,4 @@ const create = async () => {
   console.log(users, locations);
 };
 
-create();
+module.exports = create;
